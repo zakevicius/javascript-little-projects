@@ -3,8 +3,8 @@ const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
 
-const CELLS_HORIZONTAL = 3;
-const CELLS_VERTICAL = 3;
+const CELLS_HORIZONTAL = 30;
+const CELLS_VERTICAL = 20;
 const CELL_LENGTH_X = WIDTH / CELLS_HORIZONTAL;
 const CELL_LENGTH_Y = HEIGHT / CELLS_VERTICAL;
 
@@ -69,8 +69,6 @@ const startRow = Math.floor(Math.random() * CELLS_VERTICAL);
 const startColumn = Math.floor(Math.random() * CELLS_HORIZONTAL);
 
 const stepThroughCell = (row, column) => {
-	console.log("cell");
-
 	// If cell at [row, column] is visited, then return
 	if (grid[row][column]) return;
 
