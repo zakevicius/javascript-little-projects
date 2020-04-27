@@ -3,13 +3,10 @@ const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
 
-const CELLS_HORIZONTAL = 7;
-const CELLS_VERTICAL = 5;
+const CELLS_HORIZONTAL = 3;
+const CELLS_VERTICAL = 3;
 const CELL_LENGTH_X = WIDTH / CELLS_HORIZONTAL;
 const CELL_LENGTH_Y = HEIGHT / CELLS_VERTICAL;
-
-console.log(WIDTH, CELLS_HORIZONTAL * CELL_LENGTH_X);
-console.log(HEIGHT, CELLS_VERTICAL * CELL_LENGTH_Y);
 
 const WALL_SIZE = Math.min(CELL_LENGTH_X, CELL_LENGTH_Y) * 0.1;
 const BALL_SIZE = Math.min(CELL_LENGTH_X, CELL_LENGTH_Y) * 0.25;
@@ -72,6 +69,8 @@ const startRow = Math.floor(Math.random() * CELLS_VERTICAL);
 const startColumn = Math.floor(Math.random() * CELLS_HORIZONTAL);
 
 const stepThroughCell = (row, column) => {
+	console.log("cell");
+
 	// If cell at [row, column] is visited, then return
 	if (grid[row][column]) return;
 
@@ -122,6 +121,7 @@ const stepThroughCell = (row, column) => {
 		}
 
 		// Visit next cell
+
 		stepThroughCell(nextRow, nextColumn);
 	}
 };
